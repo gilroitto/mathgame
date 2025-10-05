@@ -1,8 +1,10 @@
 import React, { useState, useImperativeHandle, forwardRef } from 'react';
 import CharacterBox from '../CharacterBox/CharacterBox';
 
-const BoxRow = forwardRef(({ count }, ref) => {
-  const [values, setValues] = useState(Array(count).fill(''));
+const BoxRow = forwardRef(({ count, characters='' }, ref) => {
+  const [values, setValues] = useState(Array.from({ length: count }, (_, i) => 
+    i < count - characters.length ? '' : characters[i - (count - characters.length)]
+  ));
 
   useImperativeHandle(ref, () => ({
     getValue: () => values.join(''),

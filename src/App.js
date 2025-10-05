@@ -38,7 +38,7 @@ function App() {
         >
           Learn React
         </a>
-        <BoxRow count={3} ref={boxRowRef} />
+        <BoxRow count={3} characters='54' ref={boxRowRef} />
         <button onClick={handleCalc}>Calc</button>
         <div style={{ marginTop: '16px', fontSize: '1.5rem' }}>{result}</div>
         <ColumnMethodCalculation ref={columnRef} rowCount={3} boxCount={3} />
